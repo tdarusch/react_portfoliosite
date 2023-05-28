@@ -1,17 +1,77 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { RouterProvider, createBrowserRouter, BrowserRouter } from "react-router-dom";
+
+import HomePage from './Pages/Home';
+import BlogPage from './Pages/Blog';
+import ContactPage from './Pages/Contact';
+import CVPage from './Pages/CV';
+import GalleryPage from './Pages/Gallery';
+import GithubPage from './Pages/Github';
+import InstagramPage from './Pages/Instagram';
+import LinkedInPage from './Pages/LinkedIn';
+import PortfolioSitePage from './Pages/PortfolioSite';
+import ReccsPage from './Pages/Reccs';
+import RomulusPage from './Pages/Romulus';
+import RYMPage from './Pages/RYM';
+
+const AppRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <HomePage/>
+  },
+  {
+    path: "/blog",
+    element: <BlogPage/>
+  },
+  {
+    path: "/contact",
+    element: <ContactPage/>
+  },
+  {
+    path: "/cv",
+    element: <CVPage/>
+  },
+  {
+    path: "/gallery",
+    element: <GalleryPage/>
+  },
+  {
+    path: "/github",
+    element: <GithubPage/>
+  },
+  {
+    path: "/links/instagram",
+    element: <InstagramPage/>
+  },
+  {
+    path: "/links/linkedin",
+    element: <LinkedInPage/>
+  },
+  {
+    path: "/projects/portfolio_site",
+    element: <PortfolioSitePage/>
+  },
+  {
+    path: "/recommendations",
+    element: <ReccsPage/>
+  },
+  {
+    path: "/projects/romulus",
+    element: <RomulusPage/>
+  },
+  {
+    path: "/links/rym",
+    element: <RYMPage/>
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter router={AppRouter}>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
