@@ -112,17 +112,20 @@ function App() {
                   <ListItemIcon sx={{minWidth: 30}}>
                       <HomeIcon fontSize="small"/>
                   </ListItemIcon>
-                  <ListItemText primary='Home' sx={{marginRight: 12.25}}/>
+                  <ListItemText primary='Home' sx={{marginRight: 12.625}}/>
                 </ColoredListBtn>
               </Link>
               <IconButton
                 sx={{
+                  maxWidth: 30,
+                  maxHeight: 30,
                   '& svg': {
                     transition: '0.1s',
                     transform: 'scale(1)',
                   },
                   '&:hover, &:focus': {
                     '& svg:first-of-type': {
+                      transform: 'scale(1.25)'
                     }
                   },
                   '&:after': {
@@ -138,7 +141,7 @@ function App() {
                 selected={page.mainPage==='landing'}
                 onClick={() => handleClick({mPage: 'landing', sPage: ''})}
               >
-                <AutoAwesomeIcon fontSize="small"/>
+                <AutoAwesomeIcon fontSize="small" disablePadding/>
               </IconButton>
             </ListItem>
             <ListItem disablePadding>
