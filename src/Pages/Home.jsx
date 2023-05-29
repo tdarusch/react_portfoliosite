@@ -19,7 +19,7 @@ const Home = ( colorTheme ) => {
                     width: '100vw',
                     height: window.innerHeight,
                     minHeight: 800,
-                    minWidth: 1000
+                    minWidth: 1000,
                 }}
             >
                 <Box
@@ -30,6 +30,9 @@ const Home = ( colorTheme ) => {
                         justifyContent: 'left',
                         flexDirection: 'column',
                         p: 2,
+                        borderLeft: '1px solid',
+                        borderRight: '1px solid',
+                        borderColor: 'divider'
                     }}
                 >  
                     <Box
@@ -41,7 +44,8 @@ const Home = ( colorTheme ) => {
                             p: 2,
                         }}
                     >
-                        <Typography variant="h5">
+                        <Divider/>
+                        <Typography variant="h5" sx={{paddingTop: 1.5}}>
                             <b>Welcome To My Portfolio</b>
                         </Typography>
                         <Typography variant="subtitle1" sx={{paddingBottom: 1.5}}>
