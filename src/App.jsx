@@ -64,7 +64,8 @@ const greyColors = {
   c7: grey[700],
   c8: grey[800],
   c9: grey[900],
-  tc: '#1a1a1a'
+  tc: '#1a1a1a',
+  bgc: grey[200]
 };
 const blueGreyColors = {
   theme: 'blueGrey',
@@ -76,7 +77,8 @@ const blueGreyColors = {
   c7: blueGrey[700],
   c8: blueGrey[800],
   c9: blueGrey[900],
-  tc: '#1a1a1a'
+  tc: '#1a1a1a',
+  bgc: blueGrey[200]
 };
 const darkColors = {
   theme: 'dark',
@@ -88,7 +90,8 @@ const darkColors = {
   c7: '#0d0d0d',
   c8: '#0d0d0d',
   c9: '#0d0d0d',
-  tc: grey[100]
+  tc: grey[100],
+  bgc: '#333333'
 };
 const tanColors = {
   theme: 'tan',
@@ -100,8 +103,9 @@ const tanColors = {
   c7: '#675a4c',
   c8: '#584d41',
   c9: '#3b332b',
-  tc: '#1a1a1a'
-}
+  tc: '#1a1a1a',
+  bgc: '#ded9d3'
+};
 
 function App() {
   const[page, setPage] = useState({
@@ -536,7 +540,7 @@ function App() {
             </Box>
           </Drawer>
           <Routes>
-            <Route path="/" element={<HomePage/>}/>
+            <Route path="/" element={<HomePage colorTheme={colors}/>}/>
             <Route path="/landing" element={<Landing/>}/>
             <Route path="/blog" element={<BlogPage/>}/>
             <Route path="/contact" element={<ContactPage/>}/>
