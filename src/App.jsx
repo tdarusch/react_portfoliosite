@@ -1,5 +1,5 @@
 import React, { useState, useCont } from "react";
-import { Typography, Divider, Drawer, List, ListItemIcon, ListItem, ListItemButton, ListItemText, Collapse, IconButton, Box  } from "@mui/material";
+import { Typography, Divider, Drawer, List, ListItemIcon, ListItem, ListItemButton, ListItemText, Collapse, IconButton, Box, ListItemAvatar, Avatar  } from "@mui/material";
 import HomeIcon from '@mui/icons-material/Home';
 import BuildIcon from '@mui/icons-material/Build';
 import DescriptionIcon from '@mui/icons-material/Description';
@@ -20,9 +20,8 @@ import CameraIcon from '@mui/icons-material/Camera';
 import BookmarksIcon from '@mui/icons-material/Bookmarks';
 import { Link } from "react-router-dom";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import ApiIcon from '@mui/icons-material/Api';
-import RadarIcon from '@mui/icons-material/Radar';
 import Radio from "@mui/material/Radio";
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 
 import HomePage from './Pages/Home.jsx';
 import BlogPage from './Pages/Blog';
@@ -48,8 +47,8 @@ const RichBlack = '0D1B2A';
 const drawerWidth = 240;
 
 const ColoredListBtn = styled(ListItemButton)({
-  height: 30,
-  maxHeight: 30,
+  height: 50,
+  maxHeight: 50,
   maxWidth: drawerWidth,
   userSelect: 'none',
 });
@@ -65,6 +64,7 @@ const greyColors = {
   c8: grey[800],
   c9: grey[900],
   tc: '#1a1a1a',
+  tc2: '#262626',
   bgc: grey[200]
 };
 const blueGreyColors = {
@@ -78,6 +78,7 @@ const blueGreyColors = {
   c8: blueGrey[800],
   c9: blueGrey[900],
   tc: '#1a1a1a',
+  tc2: '#262626',
   bgc: blueGrey[200]
 };
 const darkColors = {
@@ -90,6 +91,7 @@ const darkColors = {
   c7: '#0d0d0d',
   c8: '#0d0d0d',
   c9: '#0d0d0d',
+  tc2: grey[500],
   tc: grey[100],
   bgc: '#333333'
 };
@@ -104,6 +106,7 @@ const tanColors = {
   c8: '#584d41',
   c9: '#3b332b',
   tc: '#1a1a1a',
+  tc2: '#262626',
   bgc: '#ded9d3'
 };
 
@@ -138,7 +141,6 @@ function App() {
         }
       } else {
         setOpenProjects(true);
-        //setPage({mainPage: 'projects', subPage: ''});
       }
       setOpenLinks(false);
     } else if(mPage === 'links'){
@@ -150,9 +152,10 @@ function App() {
         }
       } else {
         setOpenLinks(true);
-        //setPage({mainPage: 'links', subPage: ''});
       }
       setOpenProjects(false);
+    } else if(mPage === 'demos') {
+
     } else {
       setPage({mainPage: mPage, subPage: ''});
       setOpenProjects(false);
@@ -181,23 +184,10 @@ function App() {
           >
             <List sx={{width: drawerWidth,  overflowX: 'hidden', minHeight: 385}}>
               <ListItem sx={{display: 'flex', justifyContent: 'center', py: 0}}>
-                <ListItemIcon sx={{minWidth: 30}}>
-                  <RadarIcon
-                    sx={{
-                      color: colors.tc,
-                      animation: 'spin 1.25s linear infinite',
-                      '@keyframes spin': {
-                        '0%': {
-                          transform: 'rotate(360deg)',
-                        },
-                        '100%': {
-                          transform: 'rotate(0deg)',
-                        },
-                      },
-                    }}
-                  />
-                </ListItemIcon>
-                <Typography sx={{userSelect: 'none', variant: 'h4', color: colors.tc}}><b>T. Rusch</b></Typography>
+                <ListItemAvatar>
+                  <Avatar src='https://avatars.githubusercontent.com/u/29466901?v=4'/>
+                </ListItemAvatar>
+                <Typography sx={{userSelect: 'none', variant: 'h4', color: colors.tc}}><b>Tom Rusch</b></Typography>
               </ListItem>
               <ListItem sx={{display: 'flex', justifyContent: 'center', paddingBottom: '1', paddingTop: 0}}>
                 <Typography sx={{userSelect: 'none', variant: 'h4', textAlign: 'center', color: colors.tc}}>Augusta University Comp. Sci. '24</Typography>
@@ -215,7 +205,7 @@ function App() {
                     }}
                   >
                     <ListItemIcon sx={{minWidth: 30}}>
-                        <AutoAwesomeIcon fontSize="small" disablePadding sx={{color: colors.tc}}/>
+                        <RocketLaunchIcon fontSize="medium" disablePadding sx={{color: colors.tc}}/>
                     </ListItemIcon>
                     <ListItemText primary='Landing' sx={{color: colors.tc}}/>
                   </ColoredListBtn>
@@ -234,7 +224,7 @@ function App() {
                     }}
                   >
                     <ListItemIcon sx={{minWidth: 30}}>
-                        <HomeIcon fontSize="small" sx={{color: colors.tc}}/>
+                        <HomeIcon fontSize="medium" sx={{color: colors.tc}}/>
                     </ListItemIcon>
                     <ListItemText primary='Home' sx={{marginRight: 12.625, color: colors.tc}}/>
                   </ColoredListBtn>
@@ -250,7 +240,7 @@ function App() {
                   }}
                 >
                   <ListItemIcon sx={{minWidth: 30}}>
-                      <BuildIcon fontSize="small" disablePadding sx={{color: colors.tc}}/>
+                      <BuildIcon fontSize="medium" disablePadding sx={{color: colors.tc}}/>
                   </ListItemIcon>
                   <ListItemText primary='Projects' sx={{color: colors.tc}}/>
                   <ListItemIcon>
@@ -272,7 +262,7 @@ function App() {
                       selected={page.subPage==='romulus'}
                     >
                       <ListItemIcon sx={{minWidth: 30}}>
-                        <LabelIcon fontSize="small" disablePadding sx={{color: colors.tc}}/>
+                        <LabelIcon fontSize="medium" disablePadding sx={{color: colors.tc}}/>
                       </ListItemIcon>
                       <ListItemText primary="Romulus" sx={{color: colors.tc}}/>
                     </ColoredListBtn>
@@ -289,7 +279,7 @@ function App() {
                       selected={page.subPage==='cellsims'}
                     >
                       <ListItemIcon sx={{minWidth: 30}}>
-                        <LabelIcon fontSize="small" sx={{color: colors.tc}}/>
+                        <LabelIcon fontSize="medium" sx={{color: colors.tc}}/>
                       </ListItemIcon>
                       <ListItemText primary="Cell Simulations" sx={{color: colors.tc}}/>
                     </ColoredListBtn>
@@ -306,7 +296,7 @@ function App() {
                       selected={page.subPage==='psite'}
                     >
                       <ListItemIcon sx={{minWidth: 30}}>
-                        <LabelIcon fontSize="small" sx={{color: colors.tc}}/>
+                        <LabelIcon fontSize="medium" sx={{color: colors.tc}}/>
                       </ListItemIcon>
                       <ListItemText primary="Portfolio Site" sx={{color: colors.tc}}/>
                     </ColoredListBtn>
@@ -325,7 +315,7 @@ function App() {
                       }}
                     >
                       <ListItemIcon sx={{minWidth: 30}}>
-                          <DescriptionIcon fontSize="small" sx={{color: colors.tc}}/>
+                          <DescriptionIcon fontSize="medium" sx={{color: colors.tc}}/>
                       </ListItemIcon>
                       <ListItemText primary='CV' sx={{width: drawerWidth, color: colors.tc}}/>
                   </ColoredListBtn>
@@ -343,7 +333,7 @@ function App() {
                       }}
                     >
                       <ListItemIcon sx={{minWidth: 30}}>
-                          <ImportContactsIcon fontSize="small" sx={{color: colors.tc}}/>
+                          <ImportContactsIcon fontSize="medium" sx={{color: colors.tc}}/>
                       </ListItemIcon>
                       <ListItemText primary='Blog' sx={{width: drawerWidth, color: colors.tc}}/>
                   </ColoredListBtn>
@@ -362,7 +352,7 @@ function App() {
                     }}
                   >
                     <ListItemIcon sx={{minWidth: 30}}>
-                        <GitHubIcon fontSize="small" sx={{color: colors.tc}}/>
+                        <GitHubIcon fontSize="medium" sx={{color: colors.tc}}/>
                     </ListItemIcon>
                     <ListItemText primary='Github' sx={{color: colors.tc}}/>
                 </ColoredListBtn>
@@ -377,7 +367,7 @@ function App() {
                   }}
                 >
                     <ListItemIcon sx={{minWidth: 30}}>
-                        <LinkIcon fontSize="small" sx={{color: colors.tc}}/>
+                        <LinkIcon fontSize="medium" sx={{color: colors.tc}}/>
                     </ListItemIcon>
                     <ListItemText primary='Links' sx={{paddingRight: 15, color: colors.tc}}/>
                     <ListItemIcon>
@@ -400,7 +390,7 @@ function App() {
                     href="https://www.linkedin.com/in/tommy-rusch-4030901b0/"
                   >
                     <ListItemIcon sx={{minWidth: 30}}>
-                      <LinkedInIcon fontSize="small" sx={{color: colors.tc}}/>
+                      <LinkedInIcon fontSize="medium" sx={{color: colors.tc}}/>
                     </ListItemIcon>
                     <ListItemText primary="LinkedIn" sx={{color: colors.tc}}/>
                   </ColoredListBtn>
@@ -417,7 +407,7 @@ function App() {
                     href="https://www.instagram.com/tomatoplnt/"
                   >
                     <ListItemIcon sx={{minWidth: 30}}>
-                      <InstagramIcon fontSize="small" sx={{color: colors.tc}}/>
+                      <InstagramIcon fontSize="medium" sx={{color: colors.tc}}/>
                     </ListItemIcon>
                     <ListItemText primary="Instagram" sx={{color: colors.tc}}/>
                   </ColoredListBtn>
@@ -434,7 +424,7 @@ function App() {
                     href="https://rateyourmusic.com/~tom3720"
                   >
                     <ListItemIcon sx={{minWidth: 30}}>
-                      <AlbumIcon fontSize="small" sx={{color: colors.tc}}/>
+                      <AlbumIcon fontSize="medium" sx={{color: colors.tc}}/>
                     </ListItemIcon>
                     <ListItemText primary="RYM" sx={{color: colors.tc}}/>
                   </ColoredListBtn>
@@ -452,7 +442,7 @@ function App() {
                     }}
                   >
                     <ListItemIcon sx={{minWidth: 30}}>
-                        <CameraIcon fontSize="small" sx={{color: colors.tc}}/>
+                        <CameraIcon fontSize="medium" sx={{color: colors.tc}}/>
                     </ListItemIcon>
                     <ListItemText primary='Gallery' sx={{width: drawerWidth, color: colors.tc}}/>
                   </ColoredListBtn>
@@ -470,7 +460,7 @@ function App() {
                     }}
                   >
                     <ListItemIcon sx={{minWidth: 30}}>
-                        <BookmarksIcon fontSize="small" sx={{color: colors.tc}}/>
+                        <BookmarksIcon fontSize="medium" sx={{color: colors.tc}}/>
                     </ListItemIcon>
                     <ListItemText primary='Recommendations' sx={{width: drawerWidth, color: colors.tc}}/>
                   </ColoredListBtn>
@@ -488,7 +478,7 @@ function App() {
                     }}
                   >
                     <ListItemIcon sx={{minWidth: 30}}>
-                        <EmailIcon fontSize="small" sx={{color: colors.tc}}/>
+                        <EmailIcon fontSize="medium" sx={{color: colors.tc}}/>
                     </ListItemIcon>
                     <ListItemText primary='Contact' sx={{width: drawerWidth, color: colors.tc}}/>
                   </ColoredListBtn>
@@ -540,8 +530,12 @@ function App() {
             </Box>
           </Drawer>
           <Routes>
-            <Route path="/" element={<HomePage colorTheme={colors}/>}/>
-            <Route path="/landing" element={<Landing/>}/>
+            <Route path="/" element={<HomePage colorTheme={colors}/>}>
+              <Route path="cellsimulations" element={CellSims}/>
+              <Route path="portfolio_site" element={PortfolioSitePage}/>
+              <Route path="romulus" element={RomulusPage}/>
+            </Route>
+            <Route path="/landing" element={<Landing colorTheme={colors}/>}/>
             <Route path="/blog" element={<BlogPage/>}/>
             <Route path="/contact" element={<ContactPage/>}/>
             <Route path="/cv" element={<CVPage/>}/>
