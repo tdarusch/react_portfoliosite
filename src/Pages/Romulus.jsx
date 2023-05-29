@@ -2,10 +2,10 @@ import React from "react";
 import { Button } from "@mui/material";
 
 const Romulus = () => {
+    console.log('mount');
     return(
         <>
-            <Button variant='contained' color='primary'>Test</Button>
-            <p>Hello World</p>
+            <p>Romulus</p>
         </>
     );
 }
