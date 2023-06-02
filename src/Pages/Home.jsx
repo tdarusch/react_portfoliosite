@@ -17,14 +17,16 @@ const Home = ( colorTheme ) => {
                     color: colors.tc, 
                     userSelect: 'none', 
                     width: '100vw',
-                    height: window.innerHeight,
-                    minHeight: 800,
-                    minWidth: 1000,
+                    height: '100vh',
+                    minHeight: 900,
+                    minWidth: 1800,
                 }}
             >
                 <Box
                     sx={{
-                        width: '96.5%',
+                        width: 1800,
+                        maxWidth: 1800,
+                        minWidth: 1800,
                         backgroundColor: colors.c3,
                         display: 'flex',
                         justifyContent: 'left',
@@ -41,14 +43,15 @@ const Home = ( colorTheme ) => {
                             display: 'flex',
                             justifyContent: 'left',
                             flexDirection: 'column',
-                            p: 2,
+                            width: 1800,
+                            minWidth: 1800,
                         }}
                     >
                         <Divider/>
-                        <Typography variant="h5" sx={{paddingTop: 1.5}}>
+                        <Typography variant="h5" sx={{marginTop: 1.5}}>
                             <b>Welcome To My Portfolio</b>
                         </Typography>
-                        <Typography variant="subtitle1" sx={{paddingBottom: 1.5}}>
+                        <Typography variant="subtitle1" sx={{marginBottom: 1.5}}>
                             This site serves as a portfolio of past & ongoing work, as well as a personal overview of myself
                         </Typography>
                         <Divider/>

@@ -24,8 +24,8 @@ const DisplayCard = ({
     return(
         <Card 
             sx={{
-                width: 350,
-                height: 600,
+                width: 500,
+                height: 700,
                 color: tc,
                 backgroundColor: bgc,
                 mx: 1.5,
@@ -47,7 +47,7 @@ const DisplayCard = ({
             />
             <CardMedia
                 component='img'
-                height="265"
+                height="400"
                 src={image}
             />
             <CardContent>
